@@ -25,7 +25,7 @@ def turn_on():
 @app.route('/turn_off', methods=['GET'])
 def turn_off():
     lights_controller.turn_off()
-    return jsonify(message="turned ff")
+    return jsonify(message="turned off")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

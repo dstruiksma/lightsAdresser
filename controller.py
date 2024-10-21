@@ -25,9 +25,11 @@ class LightsController:
 
     def turn_on(self):
         self.lights.fill(self.color)
+        self.lights.show()
 
     def turn_off(self):
         self.lights.fill((0, 0, 0))
+        self.lights.show()
 
     def set_color(self, color):
         self.color = (color[0], color[1], color[2])
