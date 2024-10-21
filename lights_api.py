@@ -22,8 +22,8 @@ def turn_on():
     lights_controller.turn_on()
     return jsonify(message="turned on")
 
-@app.route('/turn_lights_off', methods=['GET'])
-def turn_on():
+@app.route('/turn_off', methods=['GET'])
+def turn_off():
     lights_controller.turn_off()
     return jsonify(message="turned ff")
 
