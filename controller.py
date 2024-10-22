@@ -15,8 +15,8 @@ class LightsController:
         self.brightness = 1
 
     def set_light_color(self, color):
-        color = rgb_to_grb(color)
         self.color = color
+        color = rgb_to_grb(color)
         self.lights.fill((color[0], color[1], color[2]))
         self.lights.show()
 
