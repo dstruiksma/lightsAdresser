@@ -30,7 +30,9 @@ class LightsController:
         if not self.on:
             self.lights.fill((self.color[0], self.color[1], self.color[2]))
             self.lights.show()
+            self.on = True
         else:
             self.lights.fill((0, 0, 0))
             self.lights.show()
+            self.on = False
 
