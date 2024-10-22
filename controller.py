@@ -16,7 +16,7 @@ class LightsController:
 
     def set_light_color(self, color):
         color = rgb_to_grb(color)
-        self.color = (color[0], color[1], color[2])
+        self.color = color
         self.lights.fill((color[0], color[1], color[2]))
         self.lights.show()
 
