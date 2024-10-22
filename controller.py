@@ -11,7 +11,7 @@ def rgb_to_grb(color):
 class LightsController:
     def __init__(self):
         self.lights = neopixel.NeoPixel(board.D18, 400, brightness=1, auto_write=False)
-        self.color = [255, 50, 10]
+        self.color = [50, 255, 10]
         self.brightness = 1
 
     def set_light_color(self, color):
