@@ -13,6 +13,7 @@ class LightsController:
         self.lights = neopixel.NeoPixel(board.D18, 400, brightness=1, auto_write=False)
         self.color = [50, 255, 10]
         self.brightness = 1
+        self.on = False
 
     def set_light_color(self, color):
         color = rgb_to_grb(color)
@@ -25,11 +26,11 @@ class LightsController:
         self.brightness = brightness
         self.lights.show()
 
-    def turn_on(self):
-        self.lights.fill((self.color[0], self.color[1], self.color[2]))
-        self.lights.show()
-
-    def turn_off(self):
-        self.lights.fill((0, 0, 0))
-        self.lights.show()
+    def light_switch(self):
+        if not self.on:
+            self.lights.fill((self.color[0], self.color[1], self.color[2]))
+            self.lights.show()
+        else:
+            self.lights.fill((0, 0, 0))
+            self.lights.show()
 

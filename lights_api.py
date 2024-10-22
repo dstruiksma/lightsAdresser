@@ -17,15 +17,11 @@ def set_brightness():
     lights_controller.set_brightness(data['brightness'])
     return jsonify(message="brightness set")
 
-@app.route('/turn_on', methods=['GET'])
+@app.route('/switch', methods=['GET'])
 def turn_on():
-    lights_controller.turn_on()
+    lights_controller.light_switch()
     return jsonify(message="turned on")
 
-@app.route('/turn_off', methods=['GET'])
-def turn_off():
-    lights_controller.turn_off()
-    return jsonify(message="turned off")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
