@@ -20,6 +20,7 @@ class LightsController:
         self.color = color
         self.lights.fill((color[0], color[1], color[2]))
         self.lights.show()
+        self.on = True
 
     def set_brightness(self, brightness):
         self.lights.brightness = brightness
