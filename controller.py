@@ -4,7 +4,7 @@ from time import sleep
 
 
 def rgb_to_grb(color):
-    print(color)
+    print(color[0])
     color[0], color[1] = color[1], color[0]
     return color
 
