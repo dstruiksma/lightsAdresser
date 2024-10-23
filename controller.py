@@ -18,7 +18,7 @@ class LightsController:
     def set_light_color(self, hex_color):
         rgb_color = list(int(hex_color.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
         color = rgb_to_grb(rgb_color)
-        self.color = color
+        self.color = rgb_color
         self.lights.fill((color[0], color[1], color[2]))
         self.lights.show()
         self.on = True
