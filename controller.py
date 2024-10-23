@@ -1,10 +1,11 @@
+import ast
+
 import board
 import neopixel
 from time import sleep
 
 
 def rgb_to_grb(color):
-    print(color[0])
     color[0], color[1] = color[1], color[0]
     return color
 
@@ -17,7 +18,7 @@ class LightsController:
         self.on = False
 
     def set_light_color(self, color):
-        grb_color = rgb_to_grb(color)
+        grb_color = rgb_to_grb(ast.literal_eval(color))
         self.color = grb_color
         self.lights.fill((color[0], color[1], color[2]))
         self.lights.show()
