@@ -8,6 +8,7 @@ app = Flask(__name__)
 def set_color():
     data = request.json
     color = data['color']
+    print(color)
     lights_controller.set_light_color(color)
     return jsonify(message="color set")
 
