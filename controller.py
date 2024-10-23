@@ -16,7 +16,7 @@ class LightsController:
         self.on = False
 
     def set_light_color(self, hex_color):
-        rgb_color = tuple(int(hex_color.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+        rgb_color = list(int(hex_color.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
         color = rgb_to_grb(rgb_color)
         self.color = color
         self.lights.fill((color[0], color[1], color[2]))
