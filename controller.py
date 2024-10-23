@@ -20,7 +20,7 @@ class LightsController:
     def set_light_color(self, color):
         grb_color = rgb_to_grb(ast.literal_eval(color))
         self.color = grb_color
-        self.lights.fill((color[0], color[1], color[2]))
+        self.lights.fill((grb_color[0], grb_color[1], grb_color[2]))
         self.lights.show()
         self.on = True
 
