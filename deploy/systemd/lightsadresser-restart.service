@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart lightsadresser service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart lightsadresser.service

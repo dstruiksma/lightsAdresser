@@ -1,0 +1,12 @@
+[Unit]
+Description=Hourly restart for lightsadresser service
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+AccuracySec=1min
+Persistent=true
+Unit=lightsadresser-restart.service
+
+[Install]
+WantedBy=timers.target

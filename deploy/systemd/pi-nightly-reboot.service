@@ -1,0 +1,6 @@
+[Unit]
+Description=Nightly reboot for Raspberry Pi
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/shutdown -r now

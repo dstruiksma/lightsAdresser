@@ -1,0 +1,11 @@
+[Unit]
+Description=Reboot Raspberry Pi nightly at 04:15
+
+[Timer]
+OnCalendar=*-*-* 04:15:00
+AccuracySec=1min
+Persistent=true
+Unit=pi-nightly-reboot.service
+
+[Install]
+WantedBy=timers.target
