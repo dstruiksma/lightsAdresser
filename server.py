@@ -6,8 +6,9 @@ library so it starts fast and stays small on a Pi Zero/3:
     GET  /switch          toggle the strip on/off
     POST /set_color       {"color": [r, g, b]} or {"color": "[r, g, b]"}, 0-255
     POST /set_brightness  {"brightness": 0.0-1.0}
+    POST /set_effect      {"effect": "none" | "breathe" | "twinkle" | "gradient"}
     GET  /healthz         liveness check
-    GET  /state           current on/color/brightness
+    GET  /state           current on/color/brightness/effect
 """
 import json
 import os
@@ -42,6 +43,7 @@ class LightsHandler(BaseHTTPRequestHandler):
         routes = {
             "/set_color": ("color", lights.set_light_color, "color set"),
             "/set_brightness": ("brightness", lights.set_brightness, "brightness set"),
+            "/set_effect": ("effect", lights.set_effect, "effect set"),
         }
         if self.path not in routes:
             self._reply(404, error="not found")
@@ -88,6 +90,7 @@ class LightsHandler(BaseHTTPRequestHandler):
 
 def main():
     port = int(os.environ.get("LIGHTS_PORT", "5000"))
+    threading.Thread(target=lights.run_effects, args=(lights_lock,), daemon=True).start()
     httpd = HTTPServer(("0.0.0.0", port), LightsHandler)
     print(f"Lights server listening on :{port}", flush=True)
     try:
