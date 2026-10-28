@@ -1,0 +1,19 @@
+[Unit]
+Description=Lights Wi-Fi setup hotspot (headless provisioning)
+After=NetworkManager.service
+Wants=NetworkManager.service
+
+[Service]
+Type=simple
+User=root
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/etc/lights-provision.conf
+RuntimeDirectory=lights-provision
+RuntimeDirectoryPreserve=yes
+ExecStart=/usr/bin/python3 /opt/lights/provision.py
+Restart=always
+RestartSec=5
+MemoryMax=40M
+
+[Install]
+WantedBy=multi-user.target

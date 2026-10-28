@@ -1,0 +1,6 @@
+# Copy to /etc/lights-provision.conf to override defaults.
+PROVISION_AP_PASSWORD=lightsetup
+#PROVISION_IFACE=wlan0
+#PROVISION_BOOT_GRACE=90
+#PROVISION_OFFLINE_GRACE=120
+#PROVISION_AP_RETRY=600
